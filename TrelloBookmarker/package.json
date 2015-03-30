@@ -1,0 +1,10 @@
+{
+  "name": "TrelloBookmarker",
+  "version": "0.0.0",
+  "description": "TrelloBookmarker",
+  "main": "server.js",
+  "author": {
+    "name": "bart.dewallef",
+    "email": ""
+  }
+}
