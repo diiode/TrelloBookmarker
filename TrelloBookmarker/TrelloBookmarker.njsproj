@@ -34,6 +34,7 @@
     <Content Include="data\icon-16.png" />
     <Content Include="data\icon-32.png" />
     <Content Include="data\icon-64.png" />
+    <Content Include="data\trello-login.html" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
