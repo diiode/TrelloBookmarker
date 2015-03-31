@@ -14,6 +14,8 @@ var trelloButton = buttons.ToggleButton({
 });
 
 var panel = panels.Panel({
+    width: 600,
+    height: 450,
     contentURL: self.data.url("trello-login.html"),
     onHide: handleHide
 });
@@ -27,5 +29,5 @@ function handleChange(state) {
 }
 
 function handleHide(state) {
-    button.state('window', { checked: false });
+    trelloButton.state('window', { checked: false });
 }
