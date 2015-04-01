@@ -16,7 +16,7 @@ var trelloButton = buttons.ToggleButton({
 var panel = panels.Panel({
     width: 600,
     height: 450,
-    contentURL: self.data.url("trello-login.html"),
+    contentURL: "./trello-login.html",
     onHide: handleHide
 });
 

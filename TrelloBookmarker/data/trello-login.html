@@ -3,10 +3,45 @@
     <meta charset="utf-8" />
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="https://api.trello.com/1/client.js?key=ff77d96d79604cbabcdbd340773c0980"></script>
+    <!--<script src="https://api.trello.com/1/client.js"></script>-->
     <script src="trello-login.js"></script>
     <title></title>
 </head>
 <body>
-    <p>foo</p>
+    <div id="login">
+        <h2>Log in</h2>
+        <button id="loginButton">Log in</button>
+    </div>
+
+    <div id="bookmark" style="display: none;">
+        <h2>Bookmark</h2>
+        <form>
+            <div>
+                <span>URL</span>
+                <input type="text" />
+            </div>
+            <br />
+            <div>
+                <span>Board</span>
+                <select id="boardSelect">
+                </select>
+            </div>
+            <div>
+                <span>List</span>
+                <select>
+                    <option>Select...</option>
+                </select>
+            </div>
+            <div>
+                <span>Place in list</span>
+                <input type="radio" />
+            </div>
+            <div>
+                <span>Tags</span>
+                <input type="text" value="" />
+            </div>
+            <button type="submit">Bookmark</button>
+        </form>
+    </div>
 </body>
 </html>
