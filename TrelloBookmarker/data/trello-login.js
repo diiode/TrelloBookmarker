@@ -49,6 +49,22 @@ function init() {
             boardSelect.append('<option value="' + board.id + '">' + board.name + '</option>');
         }
     });
+
+    $("#boardSelect").change(function () {
+        if ($("#boardSelect").val()) {
+            var boardId = $("#boardSelect").val();
+            Trello.get("boards/" + boardId + "/lists", function (data) {
+                console.log(data);
+                for (i   = 0; i < data.length; i++) {
+                    list = data[i];
+                    $("#listSelect").append('<option value="' + list.id + '">' + list.name + '</option>');
+                }
+            });
+        } else {
+            console.log("Selected 'Select...'");
+        }
+        
+    })
 };
 
 

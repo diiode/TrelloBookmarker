@@ -18,23 +18,30 @@
         <form>
             <div>
                 <span>URL</span>
-                <input type="text" />
+                <input id="bookmarkUrl" type="text" />
             </div>
+
             <br />
+            <div>
+                <span>Name</span>
+                <input id="bookmarkName" type="text" />
+            </div>
+
             <div>
                 <span>Board</span>
                 <select id="boardSelect">
+                    <option>Select...</option>
                 </select>
             </div>
             <div>
                 <span>List</span>
-                <select>
+                <select id="listSelect">
                     <option>Select...</option>
                 </select>
             </div>
             <div>
                 <span>Place in list</span>
-                <input type="radio" />
+                <input type="checkbox" />
             </div>
             <div>
                 <span>Tags</span>

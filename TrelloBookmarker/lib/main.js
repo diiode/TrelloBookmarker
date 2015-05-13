@@ -1,5 +1,6 @@
 var buttons = require("sdk/ui/button/toggle");
 var panels = require("sdk/panel");
+var tabs = require("sdk/tabs");
 var self = require("sdk/self");
 
 var trelloButton = buttons.ToggleButton({
@@ -25,6 +26,8 @@ function handleChange(state) {
         panel.show({
             position: trelloButton
         });
+        var tabUrl = tab.url;
+        console.log(tabUrl)
     }
 }
 
