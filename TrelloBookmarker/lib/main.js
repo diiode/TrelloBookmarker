@@ -18,6 +18,7 @@ var panel = panels.Panel({
     width: 600,
     height: 450,
     contentURL: "./trello-login.html",
+    contentScriptFile: ["./jquery-1.7.1.min.js", "./trello-client.js","./trello-login.js"],
     onHide: handleHide
 });
 
@@ -26,8 +27,16 @@ function handleChange(state) {
         panel.show({
             position: trelloButton
         });
-        var tabUrl = tab.url;
-        console.log(tabUrl)
+        // Communicate Url
+        var tabUrl = tabs.activeTab.url;
+        console.log(tabUrl);
+        panel.port.emit("tabUrlMessage", tabUrl);
+
+        // Communicate title
+        var pageTitle = tabs.activeTab.title;
+        console.log(pageTitle);
+        panel.port.emit("tabTitleMessage", pageTitle);
+
     }
 }
 

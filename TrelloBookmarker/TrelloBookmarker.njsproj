@@ -43,7 +43,9 @@
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\jquery-1.7.1.min.js" />
     <Compile Include="data\trello-login.js" />
+    <Compile Include="data\trello-client.js" />
     <Compile Include="lib\main.js" />
     <Compile Include="test\test-main.js" />
   </ItemGroup>

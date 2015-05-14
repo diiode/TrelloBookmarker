@@ -1,6 +1,6 @@
-﻿function checkAuth() {
-    console.log("In checkAuth()");
-    console.log(window.location);
+﻿var bookmarkUrl, bookmarkTitle;
+
+function checkAuth() {
     Trello.authorize({
         expiration: "never",
         interactive: false,
@@ -15,8 +15,6 @@
 };
 
 function auth() {
-    console.log("In auth()");
-    console.log(window.location);
     Trello.authorize({
         name: "TrelloBookmarker",
         type: "popup",
@@ -39,7 +37,6 @@ function auth() {
 function init() {
     $("#login").hide();
     $("#bookmark").show();
-    console.log("In init()");
 
     Trello.get("members/me", { boards: "open" }, function (data) {
         var boardSelect, board;
@@ -50,22 +47,22 @@ function init() {
         }
     });
 
-    $("#boardSelect").change(function () {
-        if ($("#boardSelect").val()) {
-            var boardId = $("#boardSelect").val();
-            Trello.get("boards/" + boardId + "/lists", function (data) {
-                console.log(data);
-                for (i   = 0; i < data.length; i++) {
-                    list = data[i];
-                    $("#listSelect").append('<option value="' + list.id + '">' + list.name + '</option>');
-                }
-            });
-        } else {
-            console.log("Selected 'Select...'");
-        }
-        
-    })
+    
 };
+
+$("#boardSelect").change(function () {
+    if ($("#boardSelect").val()) {
+        var boardId = $("#boardSelect").val();
+        Trello.get("boards/" + boardId + "/lists", function (data) {
+            for (i = 0; i < data.length; i++) {
+                list = data[i];
+                $("#listSelect").append('<option value="' + list.id + '">' + list.name + '</option>');
+            }
+        });
+    } else {
+    }
+        
+})
 
 
 $(function() {
@@ -75,50 +72,14 @@ $(function() {
 });
 
 
+self.port.on("tabUrlMessage", function tabUrlMessageAction(data) {
+    console.log("Got url from tab: " + data);
+    bookmarkUrl = data;
+    $("bookmarkUrl").val(bookmarkUrl);
+});
 
-//(function () {
-//    var auth, checkAuth, init
-
-//    checkAuth = function () {
-
-//        console.log("In checkAuth()");
-//        Trello.authorize({
-//            interactive: false,
-//            persist: false,
-//            error: function () {
-//                return auth();
-//            },
-//            success: function () {
-//                return init();
-//            }
-//        });
-//    };
-
-//    auth = function () {
-//        console.log("In auth()");
-//        Trello.authorize( {
-//            name: "TrelloBookmarker",
-//            type: "redirect",
-//            persist: false,
-//            scope: {
-//                read: true,
-//                write: true,
-//                account: true
-//            },
-//            expiration: "never",
-//            error: function () {
-//                console.log("In auth() { error } ");
-//            },
-//            success: function () {
-//                return init();
-//            }
-//        });
-//    };
-
-//    init = function () {
-//        console.log("In init()");
-//    };
-
-//    $(checkAuth);
-
-//}).call(this);;
+self.port.on("tabTitleMessage", function tabTitleMessageAction(data) {
+    console.log("Got title from tab: " + data);
+    bookmarkTitle = data;
+    $("bookmarkName").val(bookmarkTitle);
+})
