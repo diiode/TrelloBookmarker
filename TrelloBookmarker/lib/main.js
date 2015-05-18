@@ -18,7 +18,7 @@ var panel = panels.Panel({
     width: 600,
     height: 450,
     contentURL: "./trello-login.html",
-    contentScriptFile: ["./jquery-1.7.1.min.js", "./trello-client.js","./trello-login.js"],
+    contentScriptFile: ["./jquery-1.7.1.min.js", "./trello-client.js", "./js/select2.min.js", "./trello-login.js"],
     onHide: handleHide
 });
 

@@ -2,6 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="css/select2.css" />
 </head>
 <body>
     <div id="login">
@@ -41,9 +42,13 @@
             </div>
             <div>
                 <span>Tags</span>
-                <input type="text" value="" />
+                <input id="tagPicker" type="text" value="" style="width: 100%" />
             </div>
-            <button type="submit">Bookmark</button>
+            <button id="newBookmarkButton" type="submit">Bookmark</button>
+            <br />
+            <div id="successMessage" style="background-color: green; display: none;">
+                <p>Successful added card</p>
+            </div>
         </form>
     </div>
 </body>
