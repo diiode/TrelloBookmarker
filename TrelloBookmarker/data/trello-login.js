@@ -27,7 +27,7 @@ function auth() {
             account: true
         },
         error: function () {
-            console.log("In auth() { error } ");
+            console.log("Trello authorize error");
         },
         success: function () {
             return init();
@@ -64,8 +64,6 @@ function init() {
             });
             
             Trello.get("boards/" + boardId + "/labels", function (data) {
-                console.log("labels data:");
-                console.log(data);
                 boardLabels = [];
                 for (i = 0; i < data.length; i++) {
                     label = data[i];
@@ -87,25 +85,21 @@ function init() {
     });
 
     $("#newBookmarkButton").click(function () {
-        console.log("In newBookmarkButton.click");
+
         var name = $("#bookmarkName").val();
         var url = $("#bookmarkUrl").val();
         var listId = $("#listSelect").val();
-        var card = createNewCard(name, url, listId);
-        console.log(card);
-        console.log("getting boards...")
-        Trello.get("members/me", { boards: "open" }, function (data) {
-            console.log(data);
-        }, function (data) {
-            console.log("Error on get");
-        });
+        var labels_raw = $("#tagPicker").val();
+        var labels = labels_raw.split(',');
+
+        console.log("Selected labels: ");
         
-        $.ajax({
-            method: "POST",
-            url: ""
-            });
+
+        console.log(labels);
+
+        var card = createNewCard(name, url, listId, labels);
+
         Trello.post("cards/", card, function (data) {
-            console.log("successfully posted card");
             $("#successMessage").show();
         }, function (data) {
             console.log("Error on post: ");
@@ -140,13 +134,11 @@ function createNewCard(name, url, listId, labelIds) {
 
 
 self.port.on("tabUrlMessage", function tabUrlMessageAction(data) {
-    console.log("Got url from tab: " + data);
     bookmarkUrl = data;
     $("#bookmarkUrl").val(bookmarkUrl);
 });
 
 self.port.on("tabTitleMessage", function tabTitleMessageAction(data) {
-    console.log("Got title from tab: " + data);
     bookmarkTitle = data;
     $("#bookmarkName").val(bookmarkTitle);
 });

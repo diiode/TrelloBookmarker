@@ -40,6 +40,7 @@
     <Content Include="data\icon-64.png" />
     <Content Include="data\trello-login.html" />
     <Content Include="package.json" />
+    <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\" />
