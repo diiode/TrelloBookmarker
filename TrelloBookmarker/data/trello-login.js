@@ -100,17 +100,19 @@ function init() {
             console.log("Error on get");
         });
         
-        //$.ajax({
-        //    method: "POST",
-        //    url: ""
-        //    });
-        //Trello.post("cards/", card, function (data) {
-        //    console.log("successfully posted card");
-        //    $("#successMessage").show();
-        //}, function (data) {
-        //    console.log("Error on post: ");
-        //    console.log(data);
-        //});
+        $.ajax({
+            method: "POST",
+            url: ""
+            });
+        Trello.post("cards/", card, function (data) {
+            console.log("successfully posted card");
+            $("#successMessage").show();
+        }, function (data) {
+            console.log("Error on post: ");
+            console.log(data);
+        });
+        
+        return false;
     });
 
     
