@@ -45,3 +45,5 @@ Temporary Items
 # Other
 .ntvs_analysis.dat.tmp
 .ntvs_analysis.dat
+bower_components
+node_modules
