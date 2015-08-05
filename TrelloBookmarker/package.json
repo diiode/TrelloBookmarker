@@ -12,6 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.4.1",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-bower": "^0.0.10"
   }
 }
