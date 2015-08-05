@@ -73,7 +73,7 @@ function init() {
                             text: label.name
                         });
                 }
-                $("#tagPicker").select2({
+                $("#labelPicker").select2({
                     multiple: true,
                     placeholder: "Please enter tags",
                     data: boardLabels
@@ -89,7 +89,7 @@ function init() {
         var name = $("#bookmarkName").val();
         var url = $("#bookmarkUrl").val();
         var listId = $("#listSelect").val();
-        var labels_raw = $("#tagPicker").val();
+        var labels_raw = $("#labelPicker").val();
         var labels = labels_raw.split(',');
 
         console.log("Selected labels: ");
@@ -148,7 +148,7 @@ $(function () {
         checkAuth();
     });
     
-    //$("#tagPicker").select2({
+    //$("#labelPicker").select2({
     //    data: [],
     //    multiple: true,
     //    placeholder: "Please enter tags",

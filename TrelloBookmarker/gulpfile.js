@@ -1,0 +1,5 @@
+﻿var bases = {
+    data: './data'
+}
+
+// 
