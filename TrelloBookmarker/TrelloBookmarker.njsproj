@@ -36,9 +36,12 @@
     <Content Include="data\css\select2.css" />
     <Content Include="data\css\select2.png" />
     <Content Include="data\css\select2x2.png" />
+    <Content Include="data\css\style.css" />
     <Content Include="data\icon-16.png" />
     <Content Include="data\icon-32.png" />
     <Content Include="data\icon-64.png" />
+    <Content Include="data\less\skeleton.less" />
+    <Content Include="data\less\style.less" />
     <Content Include="data\trello-login.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
@@ -47,11 +50,13 @@
     <Folder Include="data\" />
     <Folder Include="data\css\" />
     <Folder Include="data\js\" />
+    <Folder Include="data\less\" />
     <Folder Include="lib\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="data\jquery-1.7.1.min.js" />
+    <Compile Include="data\js\select2.js" />
     <Compile Include="data\js\select2.min.js" />
     <Compile Include="data\trello-login.js" />
     <Compile Include="data\trello-client.js" />

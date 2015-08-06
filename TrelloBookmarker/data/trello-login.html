@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="css/select2.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
     <div id="login">
@@ -13,31 +13,52 @@
     <div id="bookmark" style="display: none;">
         <h2>Bookmark</h2>
         <form>
-            <div>
-                <span>URL</span>
-                <input id="bookmarkUrl" type="text" />
-            </div>
+            <div class="row">
+                <div class="two columns">
+                    <label>URL</label>
+                </div>
+                <div class="six columns">
+                    <input id="bookmarkUrl" type="text" />
+                </div>
+                <div class="four columns">
 
+                </div>
+            </div>
             <br />
-            <div>
-                <span>Name</span>
-                <input id="bookmarkName" type="text" />
+            <div class="row">
+                <div class="two columns">
+                    <label>Name</label>
+                </div>
+                <div class="six columns">
+                    <input id="bookmarkName" type="text" />
+                </div>
+                <div class="four columns"></div>
             </div>
 
-            <div>
-                <span>Board</span>
-                <select id="boardSelect">
-                    <option>Select...</option>
-                </select>
+            <div class="row">
+                <div class="two columns">
+                    <label>Board</label>
+                </div>
+                <div class="six columns">
+                    <select id="boardSelect">
+                        <option>Select...</option>
+                    </select>
+                </div>
+                <div class="four columns"></div>
             </div>
-            <div>
-                <span>List</span>
-                <select id="listSelect">
-                    <option>Select...</option>
-                </select>
+            <div class="row">
+                <div class="two columns">
+                    <label>List</label>
+                </div>
+                <div class="six columns">
+                    <select id="listSelect">
+                        <option>Select...</option>
+                    </select>
+                </div>
+                <div class="four columns"></div>
             </div>
-            <div>
-                <span>Labels</span>
+            <div class="row">
+                <label>Labels</label>
                 <input id="labelPicker" type="text" value="" style="width: 100%" />
             </div>
             <button id="newBookmarkButton" type="submit">Bookmark</button>
