@@ -146,14 +146,11 @@ self.port.on("tabTitleMessage", function tabTitleMessageAction(data) {
 $(function () {
     $("#loginButton").click(function () {
         checkAuth();
-    });
-    
-    //$("#labelPicker").select2({
-    //    data: [],
-    //    multiple: true,
-    //    placeholder: "Please enter tags",
-    //    tokeSeperators: [",", ";"]
-    //});
-    
-    
+    });  
+});
+
+$("#testLabelPicker").select2({
+    multiple: true,
+    placeholder: "Please enter tags",
+    data: ["foo", "bar"]
 });
