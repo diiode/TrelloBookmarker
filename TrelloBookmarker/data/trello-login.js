@@ -149,8 +149,8 @@ $(function () {
     });  
 });
 
-$("#testLabelPicker").select2({
-    multiple: true,
-    placeholder: "Please enter tags",
-    data: ["foo", "bar"]
-});
+//$("#labelPicker").select2({
+//    multiple: true,
+//    placeholder: "Please enter tags",
+//    data: [{ id: 0, text: "foo" }, { id: 1, text: "bar" }, { id: 2, text: "baz" }]
+//});

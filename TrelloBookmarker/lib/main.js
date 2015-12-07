@@ -15,7 +15,7 @@ var trelloButton = buttons.ToggleButton({
 });
 
 var panel = panels.Panel({
-    width: 600,
+    width: 620,
     height: 450,
     contentURL: "./trello-login.html",
     contentScriptFile: ["./jquery-1.7.1.min.js", "./trello-client.js", "./js/select2.min.js", "./trello-login.js"],
