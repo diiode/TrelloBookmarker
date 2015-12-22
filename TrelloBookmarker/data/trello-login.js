@@ -70,13 +70,17 @@ function init() {
                     boardLabels.push(
                         {
                             id: label.id,
-                            text: label.name
+                            text: label.name,
+                            color: label.color
                         });
                 }
                 $("#labelPicker").select2({
                     multiple: true,
                     placeholder: "Please enter tags",
-                    data: boardLabels
+                    data: boardLabels, 
+                    formatResult: formatState,
+                    formatSelection: formatState,
+                    escapeMarkup: function (m) { return m; }
                 });
             });
         } else {
@@ -148,6 +152,13 @@ $(function () {
         checkAuth();
     });  
 });
+
+function formatState(state) {
+    var $state = $(
+        '<span><span class="color-label" style="background-color: ' + state.color + '"></span>' + state.text + '</span>'
+    );
+    return $state;
+}
 
 //$("#labelPicker").select2({
 //    multiple: true,

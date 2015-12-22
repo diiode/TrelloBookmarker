@@ -16,6 +16,7 @@ This release will not be ready for Firefox addon store, but only for personal us
 *Maybe*
 
  - [ ] Colored Labels in label select list
+ - [ ] select2 v4
 
 ### Second release ###
  
