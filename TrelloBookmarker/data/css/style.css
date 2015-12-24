@@ -1361,5 +1361,48 @@ select {
   top: 10px;
 }
 .color-label {
-  width: 30px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+.green-color-label {
+  background-color: #61BD4F;
+  color: white;
+}
+.yellow-color-label {
+  background-color: #F2D600;
+  color: white;
+}
+.orange-color-label {
+  background-color: #FFAB4A;
+  color: white;
+}
+.red-color-label {
+  background-color: #EB5A46;
+  color: white;
+}
+.purple-color-label {
+  background-color: #C377E0;
+  color: white;
+}
+.blue-color-label {
+  background-color: #0079BF;
+  color: white;
+}
+.sky-color-label {
+  background-color: #00C2E0;
+  color: white;
+}
+.lime-color-label {
+  background-color: #51E898;
+  color: white;
+}
+.pink-color-label {
+  background-color: #FF80CE;
+  color: white;
+}
+.black-color-label {
+  background-color: #4D4D4D;
+  color: white;
 }

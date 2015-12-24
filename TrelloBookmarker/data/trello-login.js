@@ -155,7 +155,7 @@ $(function () {
 
 function formatState(state) {
     var $state = $(
-        '<span><span class="color-label" style="background-color: ' + state.color + '"></span>' + state.text + '</span>'
+        '<span><span class="color-label" style="background-color: ' + state.color + '"></span><span class="text-label">' + state.text + '</span></span>'
     );
     return $state;
 }
