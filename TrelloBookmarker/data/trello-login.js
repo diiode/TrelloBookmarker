@@ -38,7 +38,7 @@ function auth() {
 function init() {
     $("#login").hide();
     $("#bookmark").show();
-
+    
     Trello.get("members/me", { boards: "open" }, function (data) {
         var boardSelect, board;
         boardSelect = $("#boardSelect");
@@ -63,46 +63,28 @@ function init() {
                 }
             });
             
-            Trello.get("boards/" + boardId + "/labels", function (data) {
-                boardLabels = [];
-                for (i = 0; i < data.length; i++) {
-                    label = data[i];
-                    boardLabels.push(
-                        {
-                            id: label.id,
-                            text: label.name,
-                            color: label.color
-                        });
-                }
-                $("#labelPicker").select2({
-                    multiple: true,
-                    placeholder: "Please enter tags",
-                    data: boardLabels, 
-                    formatResult: formatState,
-                    formatSelection: formatState,
-                    escapeMarkup: function (m) { return m; }
-                });
-            });
+            fillLabelList(boardId);
+            
         } else {
         }
         
     });
-
+    
     $("#newBookmarkButton").click(function () {
-
+        
         var name = $("#bookmarkName").val();
         var url = $("#bookmarkUrl").val();
         var listId = $("#listSelect").val();
         var labels_raw = $("#labelPicker").val();
         var labels = labels_raw.split(',');
-
+        
         console.log("Selected labels: ");
         
-
+        
         console.log(labels);
-
+        
         var card = createNewCard(name, url, listId, labels);
-
+        
         Trello.post("cards/", card, function (data) {
             $("#successMessage").show();
         }, function (data) {
@@ -112,8 +94,35 @@ function init() {
         
         return false;
     });
-
     
+    $("#newLabelButton").click(function () {
+        var boardId = $("#boardSelect").val();
+        
+        var newColor = $("#colorSelect").val();
+        var newLabelName = $("#newLabelTextbox").val();
+        console.log(newColor);
+        console.log(newLabelName);
+        
+        var newLabel = {
+            name: newLabelName,
+            color: newColor
+        };
+        
+        Trello.post("boards/" + boardId + "/labels", newLabel, function (data) {
+            // Success
+            console.log("Successfully added new label");
+
+            fillLabelList(boardId);
+
+            //TODO Clear selection
+        }, function (data) {
+            // Error
+            console.log("Could not add the new label");
+        });
+        
+        return false;
+    });
+
 };
 
 
@@ -150,7 +159,7 @@ self.port.on("tabTitleMessage", function tabTitleMessageAction(data) {
 $(function () {
     $("#loginButton").click(function () {
         checkAuth();
-    });  
+    });
 });
 
 function formatState(state) {
@@ -159,6 +168,31 @@ function formatState(state) {
     );
     return $state;
 }
+
+function fillLabelList(boardId) {
+    Trello.get("boards/" + boardId + "/labels", function (data) {
+        boardLabels = [];
+        for (i = 0; i < data.length; i++) {
+            label = data[i];
+            boardLabels.push(
+                {
+                    id: label.id,
+                    text: label.name,
+                    color: label.color
+                });
+        }
+        $("#labelPicker").select2({
+            multiple: true,
+            placeholder: "Please enter tags",
+            data: boardLabels, 
+            formatResult: formatState,
+            formatSelection: formatState,
+            escapeMarkup: function (m) { return m; }
+        });
+    });
+}
+
+
 
 //$("#labelPicker").select2({
 //    multiple: true,

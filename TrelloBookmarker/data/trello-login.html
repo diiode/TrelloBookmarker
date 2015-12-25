@@ -14,29 +14,29 @@
         <h2>Bookmark</h2>
         <form>
             <div class="row">
-                <div class="two columns">
+                <div class="three columns">
                     <label>URL</label>
                 </div>
                 <div class="six columns">
                     <input id="bookmarkUrl" type="text" />
                 </div>
-                <div class="four columns">
+                <div class="three columns">
 
                 </div>
             </div>
             <br />
             <div class="row">
-                <div class="two columns">
+                <div class="three columns">
                     <label>Name</label>
                 </div>
                 <div class="six columns">
                     <input id="bookmarkName" type="text" />
                 </div>
-                <div class="four columns"></div>
+                <div class="three columns"></div>
             </div>
 
             <div class="row">
-                <div class="two columns">
+                <div class="three columns">
                     <label>Board</label>
                 </div>
                 <div class="six columns">
@@ -44,10 +44,10 @@
                         <option>Select...</option>
                     </select>
                 </div>
-                <div class="four columns"></div>
+                <div class="three columns"></div>
             </div>
             <div class="row">
-                <div class="two columns">
+                <div class="three columns">
                     <label>List</label>
                 </div>
                 <div class="six columns">
@@ -55,10 +55,10 @@
                         <option>Select...</option>
                     </select>
                 </div>
-                <div class="four columns"></div>
+                <div class="three columns"></div>
             </div>
             <div class="row">
-                <div class="two columns">
+                <div class="three columns">
                     <label>Labels</label>
                 </div>
                 <div class="nine columns">
@@ -67,22 +67,22 @@
                 
             </div>
             <div class="row">
-                <div class="two columns">
+                <div class="three columns">
                     <label>Add new label</label>
                 </div>
-                <div class="four columns">
+                <div class="three columns">
                     <select id="colorSelect">
                         <option>Color...</option>
-                        <option class="green-color-label">Green</option>
-                        <option class="yellow-color-label">Yellow</option>
-                        <option class="orange-color-label">Orange</option>
-                        <option class="red-color-label">Red</option>
-                        <option class="purple-color-label">Purple</option>
-                        <option class="blue-color-label">Blue</option>
-                        <option class="sky-color-label">Sky</option>
-                        <option class="lime-color-label">Lime</option>
-                        <option class="pink-color-label">Pink</option>
-                        <option class="black-color-label">Black</option>
+                        <option value="green" class="green-color-label">Green</option>
+                        <option value="yellow" class="yellow-color-label">Yellow</option>
+                        <option value="orange" class="orange-color-label">Orange</option>
+                        <option value="red" class="red-color-label">Red</option>
+                        <option value="purple" class="purple-color-label">Purple</option>
+                        <option value="blue" class="blue-color-label">Blue</option>
+                        <option value="sky" class="sky-color-label">Sky</option>
+                        <option value="lime" class="lime-color-label">Lime</option>
+                        <option value="pink" class="pink-color-label">Pink</option>
+                        <option value="black" class="black-color-label">Black</option>
                         <option class="null-color-label">No color</option>
                     </select>
                 </div>
@@ -90,11 +90,11 @@
                     <input id="newLabelTextbox" type="text" />
                 </div>
                 <div class="two columns">
-                    <button id="newLabelButton">Add</button>
+                    <button id="newLabelButton" class="button-primary">Add</button>
                 </div>
             </div>
             <br />
-            <button id="newBookmarkButton" type="submit">Bookmark</button>
+            <button id="newBookmarkButton" class="button-primary" type="submit">Bookmark</button>
             <br />
             <div id="successMessage" style="background-color: green; display: none;">
                 <p>Successful added card</p>
