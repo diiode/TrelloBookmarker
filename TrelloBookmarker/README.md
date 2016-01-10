@@ -7,8 +7,7 @@ This Firefox addon is developed with Visual Studio 2015 with the node.js plugin.
 
 ## Tasks & ToDo ##
 
-### First release: personal
-This release will not be ready for Firefox addon store, but only for personal usage (i.e. me).
+### First release
 
  - [x] Theme
  - [x] Creating new tags
@@ -16,14 +15,11 @@ This release will not be ready for Firefox addon store, but only for personal us
     - [x] Label allign
     - [ ] Select2 overflow
  - [x] Sort Labels
+ - [ ] XPI creation
 
 
-*Maybe*
+*Optional*
 
  - [x] Colored Labels in label select list
  - [ ] select2 v4
-
-### Second release ###
- 
- - [ ]
 
