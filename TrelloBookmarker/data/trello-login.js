@@ -87,6 +87,7 @@ function init() {
         
         Trello.post("cards/", card, function (data) {
             $("#successMessage").show();
+            $("#successMessage").fadeOut(3000);
         }, function (data) {
             console.log("Error on post: ");
             console.log(data);
@@ -111,7 +112,7 @@ function init() {
         Trello.post("boards/" + boardId + "/labels", newLabel, function (data) {
             // Success
             console.log("Successfully added new label");
-
+            
             fillLabelList(boardId);
 
             //TODO Clear selection
@@ -181,6 +182,9 @@ function fillLabelList(boardId) {
                     color: label.color
                 });
         }
+        boardLabels.sort(function (a, b) {
+            return ((a.text < b.text) ? -1 : (a.text > b.text) ? 1 : 0);
+        });
         $("#labelPicker").select2({
             multiple: true,
             placeholder: "Please enter tags",
@@ -193,9 +197,28 @@ function fillLabelList(boardId) {
 }
 
 
-
-//$("#labelPicker").select2({
-//    multiple: true,
-//    placeholder: "Please enter tags",
-//    data: [{ id: 0, text: "foo" }, { id: 1, text: "bar" }, { id: 2, text: "baz" }]
+// Debug
+//$(function () {
+//    var boardLabels = [{ id: 0, text: "foo", color: "green" }, 
+//        { id: 1, text: "bar", color: "yellow" }, 
+//        { id: 2, text: "baz", color: "green" },
+//        { id: 3, text: "C#", color: null },
+//        { id: 4, text: "C++", color: null },
+//        { id: 5, text: "C", color: null },
+//        { id: 6, text: "Haskell", color: null },
+//        { id: 7, text: "Electronics", color: "green" },
+//        { id: 8, text: "Art", color: "blue" },
+//        { id: 9, text: "Pro", color: "purple" }]
+//    boardLabels.sort(function (a, b) {
+//        return ((a.text < b.text) ? -1 : (a.text > b.text) ? 1 : 0);
+//    })
+    
+//    $("#labelPicker").select2({
+//        multiple: true,
+//        placeholder: "Please enter tags",
+//        data: boardLabels, 
+//        formatResult: formatState,
+//        formatSelection: formatState,
+//        escapeMarkup: function (m) { return m; }
+//    });
 //});

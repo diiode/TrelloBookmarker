@@ -1,16 +1,18 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Trello bookmarker</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+    <!--<div id="login" style="display: none;">-->
     <div id="login">
         <h2>Log in</h2>
         <button id="loginButton">Log in</button>
     </div>
 
     <div id="bookmark" style="display: none;">
+            <!--<div id="bookmark">-->
         <h2>Bookmark</h2>
         <form>
             <div class="row">
@@ -18,7 +20,7 @@
                     <label>URL</label>
                 </div>
                 <div class="six columns">
-                    <input id="bookmarkUrl" type="text" />
+                    <input id="bookmarkUrl" type="text" placeholder="Url" />
                 </div>
                 <div class="three columns">
 
@@ -30,7 +32,7 @@
                     <label>Name</label>
                 </div>
                 <div class="six columns">
-                    <input id="bookmarkName" type="text" />
+                    <input id="bookmarkName" type="text" placeholder="Title" />
                 </div>
                 <div class="three columns"></div>
             </div>
@@ -61,10 +63,10 @@
                 <div class="three columns">
                     <label>Labels</label>
                 </div>
-                <div class="nine columns">
-                    <input id="labelPicker" type="text" value="" style="width: 100%" />
+                <div class="nine columns" style="margin-bottom: 15px;">
+                    <input id="labelPicker" type="text" value="" style="margin-bottom: 0px;" />
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="three columns">
@@ -87,22 +89,30 @@
                     </select>
                 </div>
                 <div class="four columns">
-                    <input id="newLabelTextbox" type="text" />
+                    <input id="newLabelTextbox" type="text" placeholder="Label name" />
                 </div>
                 <div class="two columns">
-                    <button id="newLabelButton" class="button-primary">Add</button>
+                    <button id="newLabelButton" class="button-primary"
+                            style="float: right">
+                        Add
+                    </button>
                 </div>
             </div>
             <br />
-            <button id="newBookmarkButton" class="button-primary" type="submit">Bookmark</button>
-            <br />
-            <div id="successMessage" style="background-color: green; display: none;">
-                <p>Successful added card</p>
+            <div class="row">
+                <div class="six columns">
+                    <button id="newBookmarkButton" class="button-primary" type="button">Bookmark</button>
+                </div>
+                <div class="six columns">
+                    <div id="successMessage" style="float: right; display: none;" class="success-alert">
+                        &#10003; Successfully added card
+                    </div>
+                </div>
             </div>
         </form>
     </div>
 </body>
 </html>
-<!--<script src="js/jquery.js"></script>
+<script src="js/jquery.js"></script>
 <script src="js/select2.js"></script>
-<script src="trello-login.js" type="text/javascript"></script>-->
+<script src="trello-login.js" type="text/javascript"></script>
