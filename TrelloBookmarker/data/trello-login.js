@@ -5,7 +5,7 @@ function checkAuth() {
     Trello.authorize({
         expiration: "never",
         interactive: false,
-        persist: false,
+        persist: true,
         error: function () {
             return auth();
         },
@@ -20,7 +20,7 @@ function auth() {
         name: "TrelloBookmarker",
         type: "popup",
         expiration: "never",
-        persist: false,
+        persist: true,
         scope: {
             read: true,
             write: true,
@@ -78,13 +78,16 @@ function init() {
         var labels_raw = $("#labelPicker").val();
         var labels = labels_raw.split(',');
         
-        console.log("Selected labels: ");
-        
+        console.log("Selected labels: ");        
         
         console.log(labels);
+        if (labels[0] == "") {
+            labels = [];
+        }
         
         var card = createNewCard(name, url, listId, labels);
-        
+        console.log(card);
+
         Trello.post("cards/", card, function (data) {
             $("#successMessage").show();
             $("#successMessage").fadeOut(3000);
@@ -126,10 +129,6 @@ function init() {
 
 };
 
-
-
-
-
 function createNewCard(name, url, listId, labelIds) {
     return {
         name: name,
@@ -142,10 +141,6 @@ function createNewCard(name, url, listId, labelIds) {
     };
     //return newCard;
 }
-
-
-
-
 
 self.port.on("tabUrlMessage", function tabUrlMessageAction(data) {
     bookmarkUrl = data;

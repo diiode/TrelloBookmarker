@@ -15,7 +15,8 @@ This Firefox addon is developed with Visual Studio 2015 with the node.js plugin.
     - [x] Label allign
     - [ ] Select2 overflow
  - [x] Sort Labels
- - [ ] XPI creation
+ - [x] XPI creation
+ - [ ] Save API key
 
 
 *Optional*
