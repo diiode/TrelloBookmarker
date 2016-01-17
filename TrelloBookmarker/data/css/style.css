@@ -1433,11 +1433,10 @@ input.select2-input {
 /*
  * Misc
  */
-.success-alert {
+.alert {
   display: inline-block;
   height: 38px;
   padding: 0px 30px;
-  background-color: #01ed01;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -1447,4 +1446,10 @@ input.select2-input {
   white-space: nowrap;
   border-radius: 4px;
   color: white;
+}
+.success-alert {
+  background-color: #01ed01;
+}
+.error-alert {
+  background-color: red;
 }

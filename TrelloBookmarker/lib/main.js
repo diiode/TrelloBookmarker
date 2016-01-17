@@ -27,6 +27,9 @@ function handleChange(state) {
         panel.show({
             position: trelloButton
         });
+        // Trello button click
+        panel.port.emit("trelloButtonClick");
+
         // Communicate Url
         var tabUrl = tabs.activeTab.url;
         console.log(tabUrl);
@@ -36,7 +39,6 @@ function handleChange(state) {
         var pageTitle = tabs.activeTab.title;
         console.log(pageTitle);
         panel.port.emit("tabTitleMessage", pageTitle);
-
     }
 }
 

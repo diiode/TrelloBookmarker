@@ -1,13 +1,17 @@
 ﻿var bookmarkUrl, bookmarkTitle;
 var boardLabels = [];
 
-function checkAuth() {
+function checkAuth(isInit) {
     Trello.authorize({
         expiration: "never",
         interactive: false,
         persist: true,
         error: function () {
-            return auth();
+            if (isInit) {
+                return auth();
+            } else {
+
+            }
         },
         success: function () {
             return init();
@@ -89,11 +93,12 @@ function init() {
         console.log(card);
 
         Trello.post("cards/", card, function (data) {
-            $("#successMessage").show();
-            $("#successMessage").fadeOut(3000);
+            showNotificationAlert("Successfully added card");
+            
         }, function (data) {
             console.log("Error on post: ");
             console.log(data);
+            showNotificationAlert("Could not add new card");
         });
         
         return false;
@@ -114,14 +119,20 @@ function init() {
         
         Trello.post("boards/" + boardId + "/labels", newLabel, function (data) {
             // Success
+            showNotificationAlert("Successfully added new label");
             console.log("Successfully added new label");
             
+            $("#newLabelTextbox").val('');
+            $("#colorSelect").val($("#colorSelect").prop("defaultSelected"));
             fillLabelList(boardId);
 
             //TODO Clear selection
         }, function (data) {
             // Error
             console.log("Could not add the new label");
+
+            console.log(data);
+            showNotificationAlert("Could not add the new label", true);
         });
         
         return false;
@@ -150,12 +161,6 @@ self.port.on("tabUrlMessage", function tabUrlMessageAction(data) {
 self.port.on("tabTitleMessage", function tabTitleMessageAction(data) {
     bookmarkTitle = data;
     $("#bookmarkName").val(bookmarkTitle);
-});
-
-$(function () {
-    $("#loginButton").click(function () {
-        checkAuth();
-    });
 });
 
 function formatState(state) {
@@ -191,6 +196,15 @@ function fillLabelList(boardId) {
     });
 }
 
+function showNotificationAlert(text, isError) {
+    isError = isError || false;
+    var alertClass = "alert " + (isError ? "error-alert" : "success-alert");
+    $("#successMessage").attr("class", alertClass);
+    $("#textSuccessMessage").text(text);
+    $("#successMessage").show();
+    $("#successMessage").fadeOut(3000);
+}
+
 
 // Debug
 //$(function () {
@@ -217,3 +231,12 @@ function fillLabelList(boardId) {
 //        escapeMarkup: function (m) { return m; }
 //    });
 //});
+
+$(function () {
+    $("#loginButton").click(function () {
+        checkAuth(true);
+    });
+    
+    checkAuth(false);
+});
+

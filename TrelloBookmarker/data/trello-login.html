@@ -85,7 +85,7 @@
                         <option value="lime" class="lime-color-label">Lime</option>
                         <option value="pink" class="pink-color-label">Pink</option>
                         <option value="black" class="black-color-label">Black</option>
-                        <option class="null-color-label">No color</option>
+                        <option value="null" class="null-color-label">No color</option>
                     </select>
                 </div>
                 <div class="four columns">
@@ -104,8 +104,8 @@
                     <button id="newBookmarkButton" class="button-primary" type="button">Bookmark</button>
                 </div>
                 <div class="six columns">
-                    <div id="successMessage" style="float: right; display: none;" class="success-alert">
-                        &#10003; Successfully added card
+                    <div id="successMessage" style="float: right; display: none;" class="alert">
+                        &#10003;&nbsp;<span id="textSuccessMessage"></span> 
                     </div>
                 </div>
             </div>
