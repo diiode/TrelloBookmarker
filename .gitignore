@@ -49,5 +49,6 @@ bower_components
 node_modules
 TrelloBookmarker/data/js/jquery.js
 
+*.xpi
 
 /.vs
