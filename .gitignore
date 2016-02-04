@@ -47,6 +47,7 @@ Temporary Items
 .ntvs_analysis.dat
 bower_components
 node_modules
+TrelloBookmarker/data/js/jquery.js
 
 
 /.vs

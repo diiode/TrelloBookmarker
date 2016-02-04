@@ -153,15 +153,15 @@ function createNewCard(name, url, listId, labelIds) {
     //return newCard;
 }
 
-self.port.on("tabUrlMessage", function tabUrlMessageAction(data) {
-    bookmarkUrl = data;
-    $("#bookmarkUrl").val(bookmarkUrl);
-});
-
-self.port.on("tabTitleMessage", function tabTitleMessageAction(data) {
-    bookmarkTitle = data;
-    $("#bookmarkName").val(bookmarkTitle);
-});
+// self.port.on("tabUrlMessage", function tabUrlMessageAction(data) {
+//     bookmarkUrl = data;
+//     $("#bookmarkUrl").val(bookmarkUrl);
+// });
+// 
+// self.port.on("tabTitleMessage", function tabTitleMessageAction(data) {
+//     bookmarkTitle = data;
+//     $("#bookmarkName").val(bookmarkTitle);
+// });
 
 function formatState(state) {
     var $state = $(
@@ -183,7 +183,7 @@ function fillLabelList(boardId) {
                 });
         }
         boardLabels.sort(function (a, b) {
-            return ((a.text < b.text) ? -1 : (a.text > b.text) ? 1 : 0);
+            return a.text.toLowerCase().localeCompare(b.text.toLowerCase());
         });
         $("#labelPicker").select2({
             multiple: true,
@@ -207,30 +207,30 @@ function showNotificationAlert(text, isError) {
 
 
 // Debug
-//$(function () {
-//    var boardLabels = [{ id: 0, text: "foo", color: "green" }, 
-//        { id: 1, text: "bar", color: "yellow" }, 
-//        { id: 2, text: "baz", color: "green" },
-//        { id: 3, text: "C#", color: null },
-//        { id: 4, text: "C++", color: null },
-//        { id: 5, text: "C", color: null },
-//        { id: 6, text: "Haskell", color: null },
-//        { id: 7, text: "Electronics", color: "green" },
-//        { id: 8, text: "Art", color: "blue" },
-//        { id: 9, text: "Pro", color: "purple" }]
-//    boardLabels.sort(function (a, b) {
-//        return ((a.text < b.text) ? -1 : (a.text > b.text) ? 1 : 0);
-//    })
+$(function () {
+   var boardLabels = [{ id: 0, text: "foo", color: "green" }, 
+       { id: 1, text: "bar", color: "yellow" }, 
+       { id: 2, text: "baz", color: "green" },
+       { id: 3, text: "C#", color: null },
+       { id: 4, text: "C++", color: null },
+       { id: 5, text: "C", color: null },
+       { id: 6, text: "Haskell", color: null },
+       { id: 7, text: "Electronics", color: "green" },
+       { id: 8, text: "Art", color: "blue" },
+       { id: 9, text: "Pro", color: "purple" }]
+   boardLabels.sort(function (a, b) {
+       return a.text.toLowerCase().localeCompare(b.text.toLowerCase());
+   })
     
-//    $("#labelPicker").select2({
-//        multiple: true,
-//        placeholder: "Please enter tags",
-//        data: boardLabels, 
-//        formatResult: formatState,
-//        formatSelection: formatState,
-//        escapeMarkup: function (m) { return m; }
-//    });
-//});
+   $("#labelPicker").select2({
+       multiple: true,
+       placeholder: "Please enter tags",
+       data: boardLabels, 
+       formatResult: formatState,
+       formatSelection: formatState,
+       escapeMarkup: function (m) { return m; }
+   });
+});
 
 $(function () {
     $("#loginButton").click(function () {
